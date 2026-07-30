@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Premium School Header</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      /* Glass Header */
+
+      .glass {
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, 0.88);
+      }
+
+      /* Navigation Hover */
+
+      .nav-link {
+        position: relative;
+        transition: 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -7px;
+        height: 3px;
+        width: 0;
+        background: #1C22C3;
+        border-radius: 20px;
+        transition: 0.35s;
+      }
+
+      .nav-link:hover {
+        color: #1C22C3;
+      }
+      .nav-link.active {
+        background:#1C22C3;
+        color:#EDDC77;
+        padding:8px 18px;
+        border-radius:999px;
+        font-weight:700;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      /* Button */
+
+      .apply-btn {
+        background: linear-gradient(135deg, #f59e0b, #f97316);
+        transition: 0.35s;
+      }
+
+      .apply-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Logo */
+
+      .logo {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        border: 3px solid #fff;
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.18);
+      }
+
+      /* Mobile Menu */
+
+      #mobileMenu {
+        transition: 0.4s;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- TOP BAR -->
+
+    <div class="bg-[#723A24] text-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex justify-between items-center py-2 text-sm">
+          <div class="flex gap-6">
+            <span><i class="fa-solid fa-phone mr-2"></i>+91 9876543210</span>
+
+            <span
+              ><i class="fa-solid fa-envelope mr-2"></i>info@school.com</span
+            >
+          </div>
+
+          <div class="hidden md:flex gap-5">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+
+            <a href="#"><i class="fab fa-instagram"></i></a>
+
+            <a href="#"><i class="fab fa-youtube"></i></a>
+
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEADER -->
+
+    <header class="glass sticky top-0 z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4">
+        <div class="flex justify-between items-center py-4">
+          <!-- Logo -->
+
+          <div class="flex items-center gap-4">
+            <img src="images/logo.png" class="logo" />
+
+            <div>
+              <h2 class="text-2xl font-bold text-[#723A24]">
+                SMART CHAMPS<br> ENGLISH MEDIUM SCHOOL
+              </h2>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+
+          <nav class="hidden lg:flex gap-8 font-semibold">
+            <a href="#" class="nav-link">Home</a>
+
+            <a href="./about.html" class="nav-link">About</a>
+
+            <a href="./academic.html" class="nav-link">Academics</a>
+
+            <a href="./admission.html" class="nav-link">Admission</a>
+
+            <a href="./facility.html" class="nav-link">Facilities</a>
+
+            <a href="./gallery.html" class="nav-link">Gallery</a>
+
+            <a href="./mandatory-disclosure.html" class="nav-link">Mandatory Disclosure</a>
+
+            <a href="./contact.html" class="nav-link">Contact</a>
+          </nav>
+
+          <!-- Right Side -->
+
+
+          <!-- Mobile -->
+
+          <button onclick="openMenu()" class="lg:hidden text-3xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+
+    <div
+      id="mobileMenu"
+      class="fixed top-0 right-0 w-72 h-full bg-white shadow-2xl translate-x-full z-50"
+    >
+      <div class="p-6">
+        <div class="flex justify-between items-center">
+          <h2 class="font-bold text-xl text-blue-900">Menu</h2>
+
+          <button onclick="closeMenu()" class="text-3xl">×</button>
+        </div>
+
+        <hr class="my-6" />
+
+        <nav class="flex flex-col gap-5 text-lg">
+          <a href="#">Home</a>
+
+          <a href="#">About</a>
+
+          <a href="#">Academics</a>
+
+          <a href="#">Admission</a>
+
+          <a href="#">Facilities</a>
+
+          <a href="#">Mandatory Disclosure</a>
+
+          <a href="#">Gallery</a>
+
+          <a href="#">Contact</a>
+
+          <a
+            href="#"
+            class="bg-orange-500 text-center text-white py-3 rounded-full"
+          >
+            Apply Now
+          </a>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Overlay -->
+
+    <div
+      id="overlay"
+      onclick="closeMenu()"
+      class="fixed inset-0 bg-black/40 hidden z-40"
+    ></div>
+
+    <script>
+      function openMenu() {
+        document
+          .getElementById("mobileMenu")
+          .classList.remove("translate-x-full");
+
+        document.getElementById("overlay").classList.remove("hidden");
+      }
+
+      function closeMenu() {
+        document.getElementById("mobileMenu").classList.add("translate-x-full");
+
+        document.getElementById("overlay").classList.add("hidden");
+      }
+    </script>
+  </body>
+</html>
